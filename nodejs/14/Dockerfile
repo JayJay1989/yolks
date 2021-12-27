@@ -27,7 +27,7 @@ LABEL       author="Matthew Penner" maintainer="matthew@pterodactyl.io"
 LABEL       org.opencontainers.image.source="https://github.com/jayjay1989/yolks"
 LABEL       org.opencontainers.image.licenses=MIT
 
-RUN         apk add --update --no-cache ca-certificates curl ffmpeg git openssl sqlite tar tzdata musl-dev python
+RUN         apk add --update --no-cache ca-certificates curl ffmpeg git openssl sqlite tar tzdata musl-dev
 RUN         npm install -g node-gyp
 RUN         adduser -D -h /home/container container
 
