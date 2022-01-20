@@ -1,4 +1,4 @@
-FROM		    mcr.microsoft.com/dotnet/sdk:3.1-buster-slim
+FROM		    mcr.microsoft.com/dotnet/sdk:3.1-buster
 
 MAINTAINER	Jonas Lateur <jonas@lateur.pro>
 
