@@ -35,26 +35,19 @@ cd /home/container || exit 1
 
 color_custom='\e[1;33m'
 color_no='\033[0m'
-
-printf "${color_custom}"
-cat <<"EOT"
-
- ____  _            _        _           _          _____               _
-|  _ \| |          | |      | |         (_)        / ____|             | |
-| |_) | | ___   ___| | _____| |__   __ _ _ _ __   | |     _ __ ___  ___| | __
-|  _ <| |/ _ \ / __| |/ / __| '_ \ / _` | | '_ \  | |    | '__/ _ \/ _ \ |/ /
-| |_) | | (_) | (__|   < (__| | | | (_| | | | | | | |____| | |  __/  __/   <
-|____/|_|\___/ \___|_|\_\___|_| |_|\__,_|_|_| |_|  \_____|_|  \___|\___|_|\_\
-
-
-EOT
+printf "\n"
+printf "${color_custom}\n"
+printf "  ____  _            _        _           _          ____               _    \n"
+printf " | __ )| | ___   ___| | _____| |__   __ _(_)_ __    / ___|_ __ ___  ___| | __\n"
+printf " |  _ \| |/ _ \ / __| |/ / __| '_ \ / _' | | '_ \  | |   | '__/ _ \/ _ \ |/ /\n"
+printf " | |_) | | (_) | (__|   < (__| | | | (_| | | | | | | |___| | |  __/  __/   < \n"
+printf " |____/|_|\___/ \___|_|\_\___|_| |_|\__,_|_|_| |_|  \____|_|  \___|\___|_|\_\\\\\\n"
 printf "${color_no}"
-
-
+printf "\n"
 # Print Java version
-printf "\033[1m\033[33mBlockchain Creek]: \033[0mjava -version\n"
-java -version
-
+printf "\033[1m\033[33mBlockchain Creek]: \033[0mJava version: "
+java -version 2>&1 | fgrep -i version | cut -d'"' -f2 | sed -e 's/^1\./1\%/' -e 's/\..*//' -e 's/%/./'
+printf "\n"
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
 # variable format of "${VARIABLE}" before evaluating the string and automatically
 # replacing the values.
