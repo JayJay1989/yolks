@@ -33,8 +33,26 @@ export INTERNAL_IP
 # Switch to the container's working directory
 cd /home/container || exit 1
 
+color_custom='\e[1;33m'
+color_no='\033[0m'
+
+printf "${color_custom}"
+cat <<"EOT"
+
+ ____  _            _        _           _          _____               _
+|  _ \| |          | |      | |         (_)        / ____|             | |
+| |_) | | ___   ___| | _____| |__   __ _ _ _ __   | |     _ __ ___  ___| | __
+|  _ <| |/ _ \ / __| |/ / __| '_ \ / _` | | '_ \  | |    | '__/ _ \/ _ \ |/ /
+| |_) | | (_) | (__|   < (__| | | | (_| | | | | | | |____| | |  __/  __/   <
+|____/|_|\___/ \___|_|\_\___|_| |_|\__,_|_|_| |_|  \_____|_|  \___|\___|_|\_\
+
+
+EOT
+printf "${color_no}"
+
+
 # Print Java version
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0mjava -version\n"
+printf "\033[1m\033[33mBlockchain Creek]: \033[0mjava -version\n"
 java -version
 
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
@@ -44,6 +62,6 @@ PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
+printf "\033[1m\033[33mBlockchain Creek]: \033[0m%s\n" "$PARSED"
 # shellcheck disable=SC2086
 exec env ${PARSED}
