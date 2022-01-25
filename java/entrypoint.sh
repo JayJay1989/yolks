@@ -33,17 +33,12 @@ export INTERNAL_IP
 # Switch to the container's working directory
 cd /home/container || exit 1
 
-color_custom='\e[1;33m'
-color_no='\033[0m'
-printf "\n"
-printf "${color_custom}\n"
-printf "  ____  _            _        _           _          ____               _    \n"
-printf " | __ )| | ___   ___| | _____| |__   __ _(_)_ __    / ___|_ __ ___  ___| | __\n"
-printf " |  _ \| |/ _ \ / __| |/ / __| '_ \ / _' | | '_ \  | |   | '__/ _ \/ _ \ |/ /\n"
-printf " | |_) | | (_) | (__|   < (__| | | | (_| | | | | | | |___| | |  __/  __/   < \n"
-printf " |____/|_|\___/ \___|_|\_\___|_| |_|\__,_|_|_| |_|  \____|_|  \___|\___|_|\_\\\\\\n"
-printf "${color_no}"
-printf "\n"
+printf "\033[1m\033[33m  ____  _            _        _           _          ____               _    \033[0m\n"
+printf "\033[1m\033[33m | __ )| | ___   ___| | _____| |__   __ _(_)_ __    / ___|_ __ ___  ___| | __\033[0m\n"
+printf "\033[1m\033[33m |  _ \| |/ _ \ / __| |/ / __| '_ \ / _' | | '_ \  | |   | '__/ _ \/ _ \ |/ /\033[0m\n"
+printf "\033[1m\033[33m | |_) | | (_) | (__|   < (__| | | | (_| | | | | | | |___| | |  __/  __/   < \033[0m\n"
+printf "\033[1m\033[33m |____/|_|\___/ \___|_|\_\___|_| |_|\__,_|_|_| |_|  \____|_|  \___|\___|_|\_\\\\\\033[0m\n"
+
 # Print Java version
 printf "\033[1m\033[33mBlockchain Creek]: \033[0mJava version: "
 java -version 2>&1 | fgrep -i version | cut -d'"' -f2 | sed -e 's/^1\./1\%/' -e 's/\..*//' -e 's/%/./'
