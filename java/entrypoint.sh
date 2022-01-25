@@ -50,7 +50,7 @@ printf "\n"
 sleep .05
 
 # Print Java version
-printf "\033[1m\033[33mBlockchain Creek]: \033[0mJava version: "
+printf "\033[1m\033[33m[Blockchain Creek]: \033[0mJava version: "
 java -version 2>&1 | fgrep -i version | cut -d'"' -f2 | sed -e 's/^1\./1\%/' -e 's/\..*//' -e 's/%/./'
 printf "\n"
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
@@ -60,6 +60,6 @@ PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat
 
 # Display the command we're running in the output, and then execute it with the env
 # from the container itself.
-printf "\033[1m\033[33mBlockchain Creek]: \033[0m%s\n" "$PARSED"
+printf "\033[1m\033[33m[Blockchain Creek]: \033[0m%s\n" "$PARSED"
 # shellcheck disable=SC2086
 exec env ${PARSED}
