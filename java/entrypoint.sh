@@ -52,7 +52,6 @@ sleep .05
 # Print Java version
 printf "\033[1m\033[33m[Blockchain Creek]: \033[0mJava version: "
 java -version 2>&1 | fgrep -i version | cut -d'"' -f2 | sed -e 's/^1\./1\%/' -e 's/\..*//' -e 's/%/./'
-printf "\n"
 # Convert all of the "{{VARIABLE}}" parts of the command into the expected shell
 # variable format of "${VARIABLE}" before evaluating the string and automatically
 # replacing the values.
