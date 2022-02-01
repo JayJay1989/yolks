@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sleep .05
 printf ""
 sleep .05
